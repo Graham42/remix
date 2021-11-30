@@ -589,7 +589,9 @@ export default function Admin() {
         <ul>
           {posts.map(post => (
             <li key={post.slug}>
-              <Link to={`/posts/${post.slug}`}>{post.title}</Link>
+              <Link to={`/posts/${post.slug}`}>
+                {post.title}
+              </Link>
             </li>
           ))}
         </ul>
@@ -687,7 +689,9 @@ export default function Admin() {
         <ul>
           {posts.map(post => (
             <li key={post.slug}>
-              <Link to={`/posts/${post.slug}`}>{post.title}</Link>
+              <Link to={`/posts/${post.slug}`}>
+                {post.title}
+              </Link>
             </li>
           ))}
         </ul>
@@ -880,13 +884,13 @@ Notice we don't return a redirect this time, we actually return the errors. Thes
 
 💿 Add validation messages to the UI
 
-```tsx filename=app/routes/admin/new.tsx lines=[2,17-18,24-25,30-31]
+```tsx filename=app/routes/admin/new.tsx lines=[2,11,17-18,24-25,30-31]
 import {
   useActionData,
   Form,
   redirect,
   ActionFunction
-} from 'remix';
+} from "remix";
 
 // ...
 
@@ -933,10 +937,10 @@ type PostError = {
   title?: boolean;
   slug?: boolean;
   markdown?: boolean;
-}
+};
 
 export const action: ActionFunction = async ({
-  request,
+  request
 }) => {
   // ...
 
